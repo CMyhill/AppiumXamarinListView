@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:AppiumFormListView" 
+             x:Class="AppiumFormListView.MainPage">
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid BackgroundColor="Fuchsia" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Column="1" Grid.Row="1" VerticalOptions="Center"
+                    Source = "http://2.bp.blogspot.com/-lyr-v94jKjI/UL1rJ7ipKVI/AAAAAAAACQQ/Cw1gQjZTY2o/s1600/grumpy+cat+original+photos.PNG">
+                </Image>
+            </Grid>
+            <ListView Grid.Row="1" x:Name="EventFilters" ItemsSource="{Binding AllTheData}" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <Grid Margin="0">
+                                <Image VerticalOptions="Fill" HorizontalOptions="Fill" Aspect="AspectFill"
+                                    Source = "https://cache.lovethispic.com/uploaded_images/thumbs/210306-Cute-Cat.png">
+                                </Image>
+                                <BoxView HorizontalOptions="Fill" VerticalOptions="Fill" Color="#968E388D"></BoxView>
+                                <Label Text="{Binding AValue}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" TextColor="White"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <BoxView Grid.Row="2" HeightRequest="1" BackgroundColor="Gray"></BoxView>
+            <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" MinimumHeightRequest="60" HeightRequest="60" Padding="0, 0, 0, 5" VerticalOptions="EndAndExpand" BackgroundColor="Yellow">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                    <Grid Margin="0,10, 0, 0">
+                        <StackLayout Spacing="2">
+                            <Label TextColor="White" Text="B" HorizontalOptions="Center" />
+                            <Label TextColor="White" Text="Locations" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+                        <Button Command="{Binding ShowLocations}"></Button>
+                    </Grid>
+                    <Grid Margin="0,10, 0, 0">
+                        <StackLayout Spacing="2" >
+                            <Label TextColor="White" Text="A" HorizontalOptions="Center" />
+                            <Label TextColor="White" Text="Favourites" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+                        <Button Command="{Binding ShowFavourites}"></Button>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>
